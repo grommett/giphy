@@ -3,9 +3,7 @@ body {
   color: #546789;
   font-family: sans-serif;
 }
-#logo {
-  color: #ea5f6e;
-}
+
 [is='app'] {
   display: grid;
   grid-template-columns: repeat(3, 200px);
@@ -23,6 +21,7 @@ body {
 .page-select:hover svg {
   fill: #fff;
 }
+
 .page-select__element {
   cursor: pointer;
   border: 1px solid #ec5f6c;
