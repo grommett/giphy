@@ -1,0 +1,28 @@
+{
+  "name": "gify-gif-grid",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha --require esm --recursive ./src/js/*.test.js",
+    "html": "mkdir -p build && cp ./src/index.html build/",
+    "css": "mkdir -p build/css && cp ./src/css/*.css build/css/",
+    "build": "npm run html && npm run css && npm run js && npm run libs",
+    "js": "mkdir -p build/js && cp ./src/js/*.js ./build/js/",
+    "libs": "mkdir -p build/js/libs && cp ./node_modules/wicked-elements/min.js ./build/js/libs/wicked.min.js",
+    "clean": "rm -rf ./build",
+    "start": "npm run build && http-server ./build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esm": "^3.0.84",
+    "http-server": "^0.11.1",
+    "jsdom": "^13.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
+    "sinon": "^7.1.1"
+  },
+  "dependencies": {
+    "wicked-elements": "^0.4.3"
+  }
+}

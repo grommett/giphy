@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Gify Grid</title>
+  </head>
+  <body>
+    <div class="page-select">
+      <select class="page-select__element" is="pager">
+        <option value="1">Page 1</option>
+        <option value="2">Page 2</option>
+        <option value="3">Page 3</option>
+        <option value="4">Page 4</option>
+      </select>
+      <svg class="page-select__arrow" viewBox="0 0 12 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M.8 4l6.6 7.5c.3.3.3.9 0 1.3l-6.6 8c-.6.8-.6 2 .1 2.6a1.6 1.6 0 0 0 2.4-.2l7.8-9.9a2 2 0 0 0 0-2.5L3.3 1.4a1.6 1.6 0 0 0-2.4 0 2 2 0 0 0 0 2.5z"
+          fill-rule="evenodd"
+        ></path>
+      </svg>
+    </div>
+    <div is="app"></div>
+
+    <!-- dependency wickedElements library -->
+    <script src="./js/libs/wicked.min.js"></script>
+
+    <!-- the app -->
+    <script type="module">
+      import app from './js/app.js';
+      import service from './js/service.js';
+      import pager from './js/pager.js';
+      import { gifGrid } from './js/gif-grid.js';
+
+      wickedElements.define('[is=app]', app(service, gifGrid));
+      wickedElements.define('[is=pager]', pager());
+    </script>
+
+    <!-- no fallback, but ideally would be if type=module was not supported -->
+    <script nomodule src="fallback.js"></script>
+  </body>
+</html>
